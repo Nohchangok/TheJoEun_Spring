@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- 
+	<bean id="player1" class="spring0128_ex.player1">
+		<property name="name" value="nochangok"></property>
+		<property name="turn" ref="myTurn"></property>
+		<property name="attack" ref="onePoint"></property>
+	</bean>
+	 -->
+	 <!-- 
+	<bean id="myTurn" class="spring0128_ex.MyTurn"></bean>
+	<bean id="nextTurn" class="spring0128_ex.NextTurn"></bean>
+	<bean id="onePoint" class="spring0128_ex.OnePoint"></bean>
+	<bean id="missPoint" class="spring0128_ex.MissPoint"></bean>
+	
+	
+	<bean id="player2" class="spring0128_ex.player2">
+		<property name="name" value="Leeseungjun"></property>
+	</bean> -->
+	
+	<context:component-scan base-package="spring0128_ex"></context:component-scan>
+
+</beans>
+
+
+
+
+
+
+

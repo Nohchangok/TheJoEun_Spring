@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 쿼리문을 맵핑시켜주는 dtd -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="customerSession">
+	<insert id="insertCustomer" parameterType="CustomerDto">
+		insert into customer
+		values(#{customerId},#{userId},#{name},#{birth},#{regDate})
+	</insert>
+
+	<update id="updateCustomer" parameterType="CustomerDto">
+		update customer set
+		user_id=#{userId}, name=#{name}, birth=#{birth}, regDate=#{regDate}
+		where customer_id=#{customerId}
+	</update>
+
+	<delete id="deleteCustomer" parameterType="String">
+		delete from customer
+		where user_id=#{userId}
+	</delete>
+
+	<select id="selectCustomerByUserId" parameterType="String"
+		resultType="CustomerDto">
+		select customer_id, user_id, name, birth, regDate from
+		customer where
+		user_id=#{userId}
+	</select>
+
+	<select id="selectCustomerByCustomerId" parameterType="int"
+		resultType="CustomerDto">
+		select customer_id, user_id, name, birth, regDate from
+		customer where
+		customer_id=#{customerId}
+	</select>
+
+	<select id="selectCustomerList" parameterType="int"
+		resultType="CustomerDto">
+		select customer_id, user_id, name, birth, regDate from
+		customer
+		limit #{limit}
+	</select>
+
+
+</mapper>

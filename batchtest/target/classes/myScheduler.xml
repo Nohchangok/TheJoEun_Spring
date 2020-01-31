@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 실행하려는 동작 -->
+	<bean id="myJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="batchtest.batchtest.TestBatch"/>
+	</bean>
+	
+	<!-- 반복정의 -->
+	<bean id="myJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="myJob"/>
+		<!-- 초, 분, 시, 일, 월 -->
+		<property name="cronExpression" value="0/5 * * * * ?"/>
+	</bean>
+	
+	<bean id="schedularFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers" ref="myJobTrigger"/>
+		
+	</bean>
+	
+</beans>

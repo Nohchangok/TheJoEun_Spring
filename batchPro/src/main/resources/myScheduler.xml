@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 스프링이란 프레임 워크가 사용할 빈 객체를 등록하는 부분 -->
+	<!-- 주기적으로 실행할 내용이 있는 객체 job 등록 -->
+	<bean id="myJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<!-- 주기적으로 실행할 클래스(우리가 만든)를 속성으로 넣어준다 -->
+		<property name="jobClass" value="batchPro.batchPro.MyJob"/>
+	</bean>
+	
+	<!-- [트리거]얼마 간격으로 실행할지의 내용을 설정하는 빈 등록 -->
+	<bean id ="myJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="myJob"/>	
+
+		<!-- 매 5초마다 실행 -->
+		<property name="cronExpression" value="0/5 * * * * ?"/>
+	</bean>
+	
+	<!-- [스케줄러]실제로 실제로 실행 시켜주는 아이를 빈으로 등록 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers" ref="myJobTrigger"/>
+	</bean>
+</beans>
+
+
+
+
+
+

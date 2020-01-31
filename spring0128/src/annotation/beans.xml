@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- 어노테이션 방식으로 빈을 등록할 것임! -->
+	<!-- annotation 패키지안에 있는것 중 어노테이션으로 빈등록을 표기한 클래스를 빈으로 등록! -->
+	<context:component-scan base-package="annotation"></context:component-scan>
+	
+	<bean id="punch" class="annotation.PunchAttack"/>
+	<bean id="missile" class="annotation.MissileAttack"/>
+</beans>

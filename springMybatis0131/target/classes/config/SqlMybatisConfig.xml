@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD 태그를 정의한 문서 -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- 마이바티스 설정파일로 쓸거야 -->
+<configuration>
+	<!-- 설정 정보를 넣어주면 된다. -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<!-- dto로 쓸 클래스를 별명으로 지정해준다. -->
+	<typeAliases>
+		<typeAlias type="spring.user.dto.UserDto" alias="User" />
+	</typeAliases>
+</configuration>
+

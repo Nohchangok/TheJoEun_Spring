@@ -1,0 +1,17 @@
+mybatis 주요 컴포넌트(jdbcTemplet대신)
+-디비를 접속하는 orm 프레임워크
+
+MyBatis 설정파일.
+-데이터베이스의 주소 정보나 Mapping 파일의 경로등 환경정보를 설정하는 파일.
+
+SqlSessionFactoryBuilder 
+-MyBatis 설정파일을 바탕으로 SqlSessionFactory를 생성하는 놈.
+
+SqlSessionFactory
+-SqlSession을 생성하는 놈.
+
+SqlSession
+-SQL문 실행과 트랜젝션 관리를 함.
+
+mapping 파일
+-SQL을 Mapping을 설정한다.
