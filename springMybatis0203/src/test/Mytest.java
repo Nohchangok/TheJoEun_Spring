@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import spring.user.dao.UserDaoImpl;
 import spring.user.dto.UserDto;
+import spring.user.mapperInterface.UserMapper;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -17,10 +20,15 @@ import spring.user.dto.UserDto;
 public class Mytest {
 
 	@Autowired
-	private UserDaoImpl userDao;
+	private UserMapper userMapper;
+	
 	@Test
 	public void test() {
-		userDao.insertUser(new UserDto("hello", "hello", "hello"));
+		List<UserDto> list = userMapper.selectList();
+		for (UserDto userDto : list) {
+			System.out.println(userDto+"!");
+		}
+		//sqlSession.select(namespace, id)
 	}
 
 }

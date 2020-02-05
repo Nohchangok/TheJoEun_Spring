@@ -25,9 +25,6 @@ import spring0131_ex.customer.dto.CustomerDto;
 public class Mytest {
 
 	@Autowired
-	ApplicationContext context;
-
-	@Autowired
 	CustomerDao customerDao;
 
 	@Test @Ignore

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 빈 스캔 -->
+	<context:component-scan
+		base-package="springMybatis0204"></context:component-scan>
+
+	<!-- 디비 정보 프로퍼티 -->
+	<context:property-placeholder
+		location="classpath:config/dbInfo.properties" />
+
+	<!-- dataSource 빈 등록(디비 접속, 커넥션풀도 해줌) -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driverClass}"></property>
+		<property name="url" value="${db.url}"></property>
+		<property name="username" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+	</bean>
+
+	<!-- sql session factory -->
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 마이바티스 설정정보 넣기 -->
+		<property name="configLocation"
+			value="classpath:config/mybatisConfig.xml"></property>
+	</bean>
+
+	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> 
+		<constructor-arg ref="sqlSessionFactoryBean"></constructor-arg> </bean> -->
+
+	<!-- <bean id="mapperFactoryBean" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+		<property name="mapperInterface" value="springMybatis0204.mapper.EmployeeMapper"></property> 
+		<property name="sqlSessionTemplate" ref="sqlSession"></property> </bean> -->
+	
+	<!-- Mybatis 매퍼를 빈으로 등록하는데, 스프링 스캔처럼 빈 등록 할거임 -->
+	<mybatis-spring:scan base-package="springMybatis0204.mapper"/>
+
+</beans>

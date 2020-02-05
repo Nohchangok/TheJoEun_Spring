@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 쿼리문을 맵핑시켜주는 dtd -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="springMybatis0204.mapper.EmployeeMapper">
+	<!-- 디비 테이블의 경과를 맵핑시킬 형태로 직접 연결시켜준다. -->
+	<!-- alias타입과 id는 객체(변수)를 가리킨다. -->
+	<resultMap type="employee" id="employeeMap">
+		<result property="empId" column="emp_id" />
+		<result property="name" column="name" />
+		<result property="gender" column="gender" />
+		<result property="position" column="position" />
+		<result property="salary" column="salary" />
+		<result property="hireDate" column="hire_date" />
+		<result property="retireDate" column="retire_date" />
+		<collection property="department" resultMap="departmentMap" />
+	</resultMap>
+	<resultMap type="dept" id="departmentMap">
+		<result property="id" column="id" />
+		<result property="deptName" column="dept_name" />
+		<result property="deptLoc" column="dept_loc" />
+	</resultMap>
+	
+	<select id="selectList" resultMap="employeeMap">
+		select e.emp_id, e.name,
+		e.gender, e.position, e.salary, e.hire_date, e.retire_date, d.id,
+		d.dept_name, d.dept_loc from employee e join department d on
+		e.department_id=d.id
+	</select>
+
+</mapper>

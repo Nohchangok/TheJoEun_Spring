@@ -22,7 +22,6 @@ public interface UserMapper {
 	@Delete("delete from users where user_id=#{userId}")
 	public void deleteUser(String userId);
 	
-	@Select("select * from users")
 	public List<UserDto> selectList();
 	
 	@Select("select * from users where user_id=#{userId}")

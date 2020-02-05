@@ -26,6 +26,7 @@
 	<bean id="sqlSessionFactoryBean"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
+		
 		<property name="configLocation"
 			value="classpath:config/mybatisConfig.xml"></property>
 	</bean>
@@ -38,6 +39,9 @@
 	<!-- 매퍼를 만들어주는 BEAN -->
 	<bean id="userMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		
+		<!-- xml설정은 Location으로 설정 -->
+		<!-- mapper interface설정은 매퍼를 만들어줘야 하므로 아래와 같이 설정. -->
 		<property name="mapperInterface"
 			value="spring.user.mapperInterface.UserMapper"></property>
 		<property name="sqlSessionTemplate" ref="sqlSession"></property>

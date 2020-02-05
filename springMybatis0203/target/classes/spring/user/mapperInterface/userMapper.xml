@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 쿼리문을 맵핑시켜주는 dtd -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<!-- UserMapper와 맵핑시켜줌. -->
+<mapper namespace="spring.user.mapperInterface.UserMapper">
+	<!-- 인터페이스의 메소드이름을 아이디로 집어넣는다. -->
+	<select id="selectList" resultType="User">
+		select * from users
+	</select>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DTD 태그를 정의한 문서 -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<!-- pk를 가져다 주는 놈! -->
+		<setting name="useGeneratedKeys" value="true"/>
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="springMybatis0204.dto.DepartmentDto"
+			alias="dept" />
+		<typeAlias type="springMybatis0204.dto.EmployeeDto"
+			alias="employee" />
+	</typeAliases>
+
+</configuration>
