@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 쿼리문을 맵핑시켜주는 dtd -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="account.mapper.AccountMapper">
+	<insert id="insertAccount" keyProperty="id" parameterType="account">
+		insert into account(owner, balance) values(#{owner}, #{balance})
+	</insert>
+		
+	<select id="selectAccountOne" resultType="account">
+		select id, owner, balance, udate from account where id=#{id}
+	</select>
+	
+	<update id="updateAccount" parameterType="account">
+		update account set owner=#{owner}, balance=#{balance} where id=#{id} 
+	</update>
+	
+	<delete id="deleteAccount">
+		delete from account where id=#{id}
+	</delete>
+</mapper>
