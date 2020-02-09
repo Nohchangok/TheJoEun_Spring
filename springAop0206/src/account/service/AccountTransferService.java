@@ -2,6 +2,7 @@ package account.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import account.dto.AccountVO;
 import account.mapper.AccountMapper;
@@ -12,6 +13,7 @@ public class AccountTransferService {
 	@Autowired
 	AccountMapper mapper;
 	
+	@Transactional
 	public int transfer(int myId, int receiveId, int sendMoney) throws AccountException {
 		int rs = 0;
 		//조회를 해서
@@ -29,7 +31,6 @@ public class AccountTransferService {
 		AccountVO receiveAccount = mapper.selectAccountOne(receiveId);
 		int reBalance = receiveAccount.getBalance();
 		
-		receiveAccount.setId(10);
 		receiveAccount.setBalance(reBalance+sendMoney);
 		rs += mapper.updateAccount(receiveAccount);
 		

@@ -32,7 +32,7 @@ public class AccountTest {
 	@Test 
 	public void test1() {
 		try {
-			transferSev.transfer(1, 2, 100);
+			transferSev.transfer(1, 4, 5000);
 		} catch (AccountException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

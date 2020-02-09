@@ -44,18 +44,22 @@
 	
 	<!-- 트렌젝션 세팅 -->
 	<!-- 트렌젝션으로 걸어줄 어드바이스를 생성한다. -->
+<!-- 	
+	트렌젝션 xml방식
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<!-- 런타임오류가 발생하면 롤백을 처리하겠다(돈을 돌려주겠다)-->
+			런타임오류가 발생하면 롤백을 처리하겠다(돈을 돌려주겠다)
 			<tx:method name="transfer" rollback-for="RuntimeException"/>
 		</tx:attributes>
-	</tx:advice>
-	
-	
-	<!-- 언제 어드바이스를 실행하게 할지. (실행할때)-->
+	</tx:advice> 
+	언제 어드바이스를 실행하게 할지. (실행할때)
 	<aop:config>
 		<aop:pointcut expression="execution(public int transfer(..))" id="controllerPt"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="controllerPt"/>
-	</aop:config>	
+	</aop:config> -->	
+	
+	<!-- 트렌젝션 어노테ㅣ션 방식 -->
+	
+	<tx:annotation-driven/>
 	
 </beans>
