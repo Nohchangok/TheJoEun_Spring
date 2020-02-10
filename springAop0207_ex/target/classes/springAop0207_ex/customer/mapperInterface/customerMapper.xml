@@ -5,6 +5,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- dto에 객체를 속성으로 가졌을 때, 테이블 두개를 합할때. -->
 <mapper
 	namespace="springAop0207_ex.customer.mapperInterface.CustomerMapper">
 	<resultMap type="Customer" id="customerMap">
