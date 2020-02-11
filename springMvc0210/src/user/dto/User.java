@@ -3,7 +3,9 @@ package user.dto;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
+@Component
 public class User {
 	
 	private String userId;

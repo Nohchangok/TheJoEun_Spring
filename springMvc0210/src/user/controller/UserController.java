@@ -31,8 +31,9 @@ public class UserController {
 		return "hello";
 	}
 	
+	//input의 method방식이 post인 경우 && inputForm.jsp의 for의 action이 /insertPost일 경우 아래의 메소드 실행.
 	//insert를 실행시키는 메소드
-	@RequestMapping(value= "/insert", method = RequestMethod.POST)
+	@RequestMapping(value= "/insertPost", method = RequestMethod.POST)
 	public ModelAndView insertUser(@RequestParam("birthStr") String birth,User user) {
 		ModelAndView mv = new ModelAndView();
 		try {
@@ -51,6 +52,7 @@ public class UserController {
 	}
 	
 	//insert폼으로 연결시켜주는 메소드
+	//url로 접근시 method방식이 get인 메소드를 실행하여 inputForm.jsp 화면을 보여줌
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public String insertUserForm() {
 		return "inputForm";
