@@ -1,5 +1,7 @@
 package user.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,16 @@ public class UserService {
 		}
 		return mapper.insertUser(user);
 	}
-	
+
+	public User selectUserOne(String userId) {
+		return  mapper.selectUserOne(userId);	
+	}
+
+	public int updateUser(User user) {
+		return mapper.updateUser(user);
+	}
+
+	public List<User> selectUserList() {
+		return mapper.selectUserList();
+	}
 }

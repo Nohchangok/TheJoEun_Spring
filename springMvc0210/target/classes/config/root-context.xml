@@ -16,6 +16,13 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<context:component-scan base-package="user"></context:component-scan>
+	
+	<!-- 뷰 리졸버 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix"	value=".jsp"></property>
+	</bean>
+		
 	<!-- 디비접속 마이바티스 등록 -->	
 	<context:property-placeholder location="classpath:config/dbInfo.properties" />	
 	

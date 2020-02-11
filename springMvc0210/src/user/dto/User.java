@@ -2,11 +2,15 @@ package user.dto;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class User {
 	
 	private String userId;
 	private String name;
 	private String nickname;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birth;
 
 	public User(String userId, String name, String nickname, LocalDate birth) {
@@ -31,6 +35,10 @@ public class User {
 
 	public LocalDate getBirth() {
 		return birth;
+	}
+	
+	public void setBirth(LocalDate birth) {
+		this.birth = birth;
 	}
 
 	@Override

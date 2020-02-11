@@ -11,8 +11,7 @@
 	</insert>
 
 	<update id="updateUser">
-		update user set name=#{name}, nickname={nickname},
-		birth=#{birth} where user_id=#{userId}
+		update users set name=#{name}, nickname=#{nickname}, birth=#{birth} where user_id=#{userId}
 	</update>
 
 	<delete id="deleteUser">
@@ -20,13 +19,12 @@
 	</delete>
 
 	<select id="selectUserList" resultType="User">
-		select user_id, name,
-		nickname, birth from users
+		select user_id, name, nickname, birth from users
 	</select>
 
 	<select id="selectUserOne" resultType="User">
 		select user_id, name,
-		nickname, birth form users where user_id=#{userId}
+		nickname, birth from users where user_id=#{userId}
 	</select>
 
 </mapper>
