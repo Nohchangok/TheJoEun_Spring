@@ -1,4 +1,4 @@
-package account.service;
+package controller;
 
 public class AccountException extends RuntimeException{
 	
@@ -7,7 +7,7 @@ public class AccountException extends RuntimeException{
 	}
 	
 	public AccountException(String msg) {
-		System.out.println(msg);
+		super(msg);
 	}
 
 }

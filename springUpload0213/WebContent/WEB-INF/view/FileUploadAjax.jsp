@@ -13,7 +13,7 @@
 			var files = $("input[name='uploadFile']")[0].files;
 			console.log(files);
 			
-			//파일를 전송하기 위해 formㅇData라는 객체에 넣는다.
+			//파일를 전송하기 위해 formData라는 객체에 넣는다.
 			var formData = new FormData();
 			
 			//폼에 보낼 내용을 추가한다.

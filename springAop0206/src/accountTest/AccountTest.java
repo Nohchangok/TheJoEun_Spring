@@ -2,6 +2,8 @@ package accountTest;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,25 +20,14 @@ import account.service.AccountTransferService;
 @ContextConfiguration("classpath:config/applicationContext.xml")
 public class AccountTest {
 
-	@Autowired
-	AccountCreateService createSev;
-	
-	@Autowired
-	AccountTransferService transferSev;
-	
-	@Test @Ignore
-	public void test() {
-		int rs = createSev.createAcoount(new AccountVO(0, "noh", 2000000, null));
-		System.out.println(rs+"로우 성공");
-	}
 	@Test 
 	public void test1() {
-		try {
-			transferSev.transfer(1, 4, 5000);
-		} catch (AccountException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
+		LocalDate now = LocalDate.now();
+		int year = now.getYear();
+		int month = now.getMonthValue();
+		int day = now.getDayOfMonth();
+		
+		System.out.println(year+"-"+month+"-"+day);
 	}
 
 }

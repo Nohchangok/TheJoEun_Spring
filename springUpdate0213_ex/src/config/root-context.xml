@@ -13,7 +13,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<context:component-scan base-package="file"></context:component-scan>
+	<context:component-scan base-package="controller"></context:component-scan>
 
 	<mvc:annotation-driven/>
 	<!-- url요청이 css/하위모든파일로 요청이 들어오면 location처럼 접근하겠다. -->
