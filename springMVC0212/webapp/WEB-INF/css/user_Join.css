@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+.input_form {
+	width: 260px;
+	border: 1px solid gray;
+	padding: 3px;
+	text-align: center;
+}
+
+.fl_r {
+	float: right;
+}
+
+span {
+	width: 75px;
+	display: inline-block;
+	text-align: right
+}
+
+form>div::after {
+	content: "";
+	clear: both;
+	display: block;
+}
