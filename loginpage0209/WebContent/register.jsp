@@ -29,7 +29,7 @@
 
 	<div class="register">
 		<h1>Register</h1>
-		<form action="registerAdd.jsp" method="post" autocomplete="off">
+		<form action="${pageContext.request.contextPath }/registerAdd" method="post" autocomplete="off">
 			<label for="userid"> <i class="fas fa-user"></i>
 			</label> <input type="text" name="userId" placeholder="UserId" id="userid"
 				required> 
@@ -42,20 +42,16 @@
 			</label> <input type="password" name="confirmpassword" placeholder="Confirm Password"
 				id="confirmpassword" required> 
 				
-			<label for="email"> <i class="fas fa-envelope"></i>
-			</label> <input type="email" name="Email" placeholder="Email"
-				id="email" required> 
-				
 			<label for="username"> <i class="glyphicon glyphicon-ok"></i>
-			</label> <input type="text" name="UserName" placeholder="UserName" id="username"
+			</label> <input type="text" name="name" placeholder="UserName" id="username"
 				required> 
-				
-			<label for="phonenumber"> <i class="glyphicon glyphicon-phone-alt"></i>
-			</label> <input type="number" name="PhoneNumber" placeholder="010-0000-0000" id="phonenumber" required> 
-			
+							
+			<label for="email"> <i class="fas fa-envelope"></i>
+			</label> <input type="email" name="email" placeholder="Email"
+				id="email" required>
 				
 			<label for="birth"> <i class="glyphicon glyphicon-calendar"></i>
-			</label> <input type="date" name="Birth" id="birth" required> 
+			</label> <input type="date" name="birth" id="birth" required> 
 				
 			<input type="submit" value="Add" onclick="Vaildate()">
 		</form>

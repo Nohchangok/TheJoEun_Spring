@@ -30,7 +30,7 @@ public class FileController {
 		int month = now.getMonthValue();
 		int day = now.getDayOfMonth();
 		
-		String Folder="C:\\Users\\oo756\\Documents\\"+year+"\\"+month+"\\"+day;
+		String Folder="C:\\Users\\oo756\\Documents\\"+year+"\\"+month+"\\21";
 		
 		for (MultipartFile multipartFile : uploadFile) {
 			
@@ -40,13 +40,17 @@ public class FileController {
 			
 			if(!file.exists()) {
 				file.mkdirs();
-				System.out.println("폴더생성");
+				System.out.println("폴더생성!!");
 			}else if(file.exists()){
 				System.out.println("폴더 안생성");
 			}
 			
+			File file1 = new File(Folder,multipartFile.getOriginalFilename());		
+			System.out.println("file"+file);
+			System.out.println("file1"+file1);
+			
 			try {
-				multipartFile.transferTo(file);
+				multipartFile.transferTo(file1);
 				System.out.println("파일 들어갔다.");
 						
 			} catch (IllegalStateException e) {
