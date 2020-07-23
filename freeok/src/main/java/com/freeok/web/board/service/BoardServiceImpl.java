@@ -22,4 +22,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getBoardList();
 	}
 
+	@Override
+	public BoardVO getBoardContent(int bid) throws Exception {
+		
+		boardDAO.updateViewCnt(bid);
+		return boardDAO.getBoardContent(bid);
+	}
+
 }
